@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+    <title>Quotes</title>
+
+    <style>
+        .main-container {
+            width: 70vh;
+            height: 35vh;
+            margin: 50px 40px;
+            padding: 10px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            /*border: 2px #264653 solid;*/
+            box-shadow: 5px 10px #332929;
+            background: linear-gradient(240deg, #264653, #2A9D8F);
+        }
+
+        header h1 {
+            color: #F9D6D4;
+        }
+
+        .main-container {
+            position: absolute;
+        }
+
+        .main-container::after {
+            content: "";
+            width: 20px;
+            height: 40px;
+            position: relative;
+            background: #fff;
+            bottom: 7.3em;
+            left: 175px;
+            border-radius: 60%;
+            background: linear-gradient(240deg, #264653, #2A9D8F);
+
+        }
+
+        .quote-container p {
+            color: #131e29;
+            font-family: 'Ephesis', ;
+            font-weight: 600;
+            margin: 0px 40px;
+        }
+
+        .person-container h4 {
+            color: #F9D6D4;
+
+        }
+
+        #next {
+            background: linear-gradient(240deg, #264653, #2A9D8F); 
+            color: rgb(34, 34, 56); 
+            border-radius: 7px;
+        }
+
+        #next:hover {
+            background: rgb(91, 124, 138);
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <h1>Quotes By Famous People</h1>
+        </header>
+        
+        <div class="quote-container">
+            <p class="actual-quote">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="person-container">
+            <h4 id="person">Lorem</h4>
+        </div>
+        <button id="next">Next Quote</button>
+    </div>
+
+    <script>
+
+        //Assigning variables to DOM elements
+        const actualQuote = document.querySelector(".actual-quote");
+        const person = document.getElementById("person");
+        const button = document.getElementById("next");
+
+        //Array variable, containing quotes
+        const quotes = [{
+            quote : "Anyone who has never made a mistake has never tried something new.",
+            person : "Albert Einstein"
+        },{
+            quote : "I think it is possible for an ordinary person to choose to be extraordinary",
+            person : "Elon Musk"
+        },{
+            quote : "Powerful people impress and intimidate by saying less. The more you say, the more likely you are to say something foolish.",
+            person : "Robert Green"
+        },{
+            quote : "You must learn when to leave, create value through scarcity.",
+            person : "Robert Green"
+        },{
+            quote : "Never whine, never complain, never try to justify yourself",
+            person : "Robert Green"
+        }, {
+            quote : "The master has failed more times than the beginner has ever tried.",
+            person : "Stephen McCranie"
+        }, {
+            quote : "Success is the product of daily habbits-not once in-a-lifetime transformations",
+            person : "James Clear"
+        },];
+
+        // Generate quote function
+
+        button.addEventListener("click", function changeQuote() {
+            let random = Math.floor(Math.random() * quotes.length);
+            actualQuote.innerHTML = quotes[random].quote
+            person.innerHTML = quotes[random].person
+        });
+
+
+    </script>
+</body>
+</html>
